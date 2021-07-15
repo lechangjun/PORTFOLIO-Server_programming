@@ -1,10 +1,11 @@
 #include "pch.h"
 #include "CorePch.h"
 
+//ê²Œì„ ì¶”ê°€ í•¨
 void HelloWorld()
 {
-	int O_Map[4][4] = {}; //¿ø·¡ °ÔÀÓÆÇ
-	int G_Map[4][4] = {}; //°ÔÀÓÀÌ ÁøÇàµÉ °ÔÀÓÆÇ
+	int O_Map[4][4] = {}; //ì›ë˜ ê²Œì„íŒ
+	int G_Map[4][4] = {}; //ê²Œì„ì´ ì§„í–‰ë  ê²Œì„íŒ
 	int G_Num[8];
 
 	void NumArray(int i, int j);
@@ -22,12 +23,12 @@ void HelloWorld()
 	//=====================================================
 	int main()
 	{
-		//Â¦ ¸ÂÃß±â °ÔÀÓ
-		//4X4 »çÀÌÁî(8½Ö)
-		//1~16 »çÀÌÀÇ ¼ıÀÚ¸¦ ÀÔ·ÂÇÏ¸é ÀÔ·ÂÇÑ ¼ıÀÚ¿¡ ÇØ´çÇÏ´Â Ä«µå ¿ÀÇÂ
-		//Â¦À» Ã£À¸¸é ¿ÀÇÂµÈ »óÅÂ·Î À¯Áö
-		//¾Æ´Ñ °æ¿ì ´Ù½Ã µÚÁıÀ½
-		//½ÃµµÇÑ È½¼ö Ç¥½Ã
+		//ì§ ë§ì¶”ê¸° ê²Œì„
+		//4X4 ì‚¬ì´ì¦ˆ(8ìŒ)
+		//1~16 ì‚¬ì´ì˜ ìˆ«ìë¥¼ ì…ë ¥í•˜ë©´ ì…ë ¥í•œ ìˆ«ìì— í•´ë‹¹í•˜ëŠ” ì¹´ë“œ ì˜¤í”ˆ
+		//ì§ì„ ì°¾ìœ¼ë©´ ì˜¤í”ˆëœ ìƒíƒœë¡œ ìœ ì§€
+		//ì•„ë‹Œ ê²½ìš° ë‹¤ì‹œ ë’¤ì§‘ìŒ
+		//ì‹œë„í•œ íšŸìˆ˜ í‘œì‹œ
 
 		srand(size_t(time(NULL)));
 
@@ -43,17 +44,17 @@ void HelloWorld()
 		{
 			system("cls");
 
-			cout << "ÃÑ ½Ãµµ È½¼ö: " << G_Count << endl;
+			cout << "ì´ ì‹œë„ íšŸìˆ˜: " << G_Count << endl;
 			int Select1 = 0;
 			int Select2 = 0;
 
 			Show_Map(i, j);
 			Show_Num(i, j);
-			cout << "1¹øÂ°·Î µÚÁıÀ» Ä«µå¸¦ ¼±ÅÃÇÏ¼¼¿ä(0~15): ";
+			cout << "1ë²ˆì§¸ë¡œ ë’¤ì§‘ì„ ì¹´ë“œë¥¼ ì„ íƒí•˜ì„¸ìš”(0~15): ";
 			cin >> Select1;
 			cout << endl;
 
-			cout << "2¹øÂ°·Î µÚÁıÀ» Ä«µå¸¦ ¼±ÅÃÇÏ¼¼¿ä(0~15): ";
+			cout << "2ë²ˆì§¸ë¡œ ë’¤ì§‘ì„ ì¹´ë“œë¥¼ ì„ íƒí•˜ì„¸ìš”(0~15): ";
 			cin >> Select2;
 			cout << endl;
 
@@ -63,7 +64,7 @@ void HelloWorld()
 			}
 			else if (Select1 < 0 || Select1>15 || Select2 < 0 || Select1>15)
 			{
-				cout << "Àß¸øµÈ ÀÔ·ÂÀÔ´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä." << endl;
+				cout << "ì˜ëª»ëœ ì…ë ¥ì…ë‹ˆë‹¤. ë‹¤ì‹œ ì…ë ¥í•´ì£¼ì„¸ìš”." << endl;
 				Sleep(1000);
 				continue;
 			}
@@ -78,7 +79,7 @@ void HelloWorld()
 			if (G_Map[F_Select_X][F_Select_Y] == 0 && G_Map[S_Select_X][S_Select_Y] == 0
 				&& (O_Map[F_Select_X][F_Select_Y] == O_Map[S_Select_X][S_Select_Y]))
 			{
-				cout << "Â¦À» Ã£¾Ò½À´Ï´Ù." << endl;
+				cout << "ì§ì„ ì°¾ì•˜ìŠµë‹ˆë‹¤." << endl;
 				cout << endl;
 				G_Map[F_Select_X][F_Select_Y] = 1;
 				G_Map[S_Select_X][S_Select_Y] = 1;
@@ -87,10 +88,10 @@ void HelloWorld()
 
 			else
 			{
-				cout << "Â¦ÀÌ ¾Æ´Õ´Ï´Ù." << endl;
-				cout << "Ã¹¹øÂ° ¼±ÅÃ: " << G_Num[O_Map[F_Select_X][F_Select_Y]];
+				cout << "ì§ì´ ì•„ë‹™ë‹ˆë‹¤." << endl;
+				cout << "ì²«ë²ˆì§¸ ì„ íƒ: " << G_Num[O_Map[F_Select_X][F_Select_Y]];
 				cout << endl;
-				cout << "µÎ¹øÂ° ¼±ÅÃ: " << G_Num[O_Map[S_Select_X][S_Select_Y]];
+				cout << "ë‘ë²ˆì§¸ ì„ íƒ: " << G_Num[O_Map[S_Select_X][S_Select_Y]];
 				cout << endl;
 				G_Count++;
 			}
@@ -173,7 +174,7 @@ void HelloWorld()
 
 	void Show_Map(int i, int j)
 	{
-		cout << "=============Å×½ºÆ®¿ë================" << endl;
+		cout << "=============í…ŒìŠ¤íŠ¸ìš©================" << endl;
 		for (int i = 0; i < 4; i++)
 		{
 			for (int j = 0; j < 4; j++)
